@@ -4,13 +4,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Remember When — Sober Send</title>
-<meta name="description" content="Remember When is a free daily nostalgia quiz. Five questions on music, movies, TV, and the decades you lived through — plus streaks, scores, and a friends circle." />
+<meta name="description" content="Remember When is a free daily nostalgia quiz. Five questions on music, movies, TV, and the decades you lived through." />
 <meta name="author" content="Sober Send" />
 <meta name="theme-color" content="#0A1E24" />
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Remember When — Sober Send" />
-<meta property="og:description" content="A daily nostalgia quiz. Five questions, decades of memories, and a friends circle to play along with." />
+<meta property="og:title" content="Remember When" />
+<meta property="og:description" content="A daily nostalgia quiz. Five questions, decades of memories." />
 <meta property="og:url" content="https://sobersend.com/rememberwhen" />
 <meta property="og:site_name" content="Sober Send" />
 
@@ -19,431 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
-<style>
-  :root {
-    --ink:      #0A1E24;
-    --ink-2:    #0C2832;
-    --horizon:  #16424A;
-    --cream:    #F4EDDF;
-    --sage:     #93A8A2;
-    --coral:    #FF6B3D;
-    --coral-dim: rgba(255, 107, 61, 0.14);
-
-    --display: "Bricolage Grotesque", sans-serif;
-    --body:    "Hanken Grotesk", sans-serif;
-    --mono:    "JetBrains Mono", monospace;
-
-    --maxw: 1080px;
-    --gutter: clamp(1.25rem, 5vw, 4rem);
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--ink);
-    color: var(--cream);
-    font-family: var(--body);
-    font-size: 17px;
-    line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-
-  a { color: inherit; }
-
-  ::selection { background: var(--coral); color: var(--ink); }
-
-  :focus-visible {
-    outline: 2px solid var(--coral);
-    outline-offset: 3px;
-    border-radius: 2px;
-  }
-
-  .wrap {
-    width: 100%;
-    max-width: var(--maxw);
-    margin-inline: auto;
-    padding-inline: var(--gutter);
-  }
-
-  .mono {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--sage);
-  }
-
-  .topbar {
-    position: relative;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-block: 1.6rem;
-  }
-  .brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 1.12rem;
-    letter-spacing: -0.01em;
-    text-decoration: none;
-    color: var(--cream);
-  }
-  .sunmark {
-    width: 13px; height: 13px;
-    border-radius: 50%;
-    background: var(--coral);
-    box-shadow: 0 0 14px 2px rgba(255,107,61,0.55);
-    flex: none;
-  }
-  .back-link {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--sage);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  .back-link:hover { color: var(--coral); }
-
-  .hero {
-    position: relative;
-    z-index: 2;
-    padding-top: clamp(2.5rem, 8vw, 5.5rem);
-    padding-bottom: clamp(2.5rem, 6vw, 4.5rem);
-  }
-  .hero-meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1rem 1.4rem;
-    margin-bottom: 1.4rem;
-  }
-  .eyebrow b { color: var(--coral); font-weight: 500; }
-
-  .tag {
-    font-family: var(--mono);
-    font-size: 0.66rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    padding: 0.4rem 0.7rem;
-    border-radius: 999px;
-    white-space: nowrap;
-    background: var(--coral-dim);
-    color: var(--coral);
-    border: 1px solid rgba(255,107,61,0.4);
-  }
-
-  h1 {
-    font-family: var(--display);
-    font-weight: 800;
-    font-size: clamp(2.8rem, 9vw, 5.8rem);
-    line-height: 0.96;
-    letter-spacing: -0.03em;
-    max-width: 14ch;
-    text-wrap: balance;
-  }
-  h1 .light { color: var(--coral); }
-
-  .lede {
-    margin-top: 1.6rem;
-    max-width: 50ch;
-    font-size: clamp(1.05rem, 2.2vw, 1.28rem);
-    line-height: 1.5;
-    color: var(--cream);
-  }
-  .lede span { color: var(--sage); }
-
-  .category-strip {
-    margin-top: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.55rem;
-  }
-  .pill {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 0.45rem 0.85rem;
-    border-radius: 999px;
-    border: 1px solid var(--horizon);
-    color: var(--sage);
-    background: rgba(12, 40, 50, 0.45);
-  }
-
-  .sky {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-  .glow {
-    position: absolute;
-    left: 50%;
-    bottom: -34vh;
-    transform: translateX(-50%);
-    width: 150vw;
-    height: 80vh;
-    background:
-      radial-gradient(60% 100% at 50% 100%,
-        rgba(255,107,61,0.42) 0%,
-        rgba(255,107,61,0.16) 32%,
-        rgba(20,58,63,0.0) 68%);
-    filter: blur(8px);
-    animation: breathe 11s ease-in-out infinite;
-  }
-  .horizon-line {
-    position: absolute;
-    left: 0; right: 0;
-    bottom: 12vh;
-    height: 1px;
-    background: linear-gradient(90deg,
-      transparent, rgba(255,107,61,0.5) 50%, transparent);
-  }
-  .star {
-    position: absolute;
-    width: 2px; height: 2px;
-    border-radius: 50%;
-    background: var(--cream);
-    opacity: 0.45;
-  }
-  .star.a { top: 16%; left: 22%; }
-  .star.b { top: 24%; left: 74%; opacity: 0.3; }
-  .star.c { top: 11%; left: 58%; opacity: 0.22; }
-
-  @keyframes breathe {
-    0%, 100% { opacity: 0.85; transform: translateX(-50%) scale(1); }
-    50%      { opacity: 1;    transform: translateX(-50%) scale(1.06); }
-  }
-
-  .section {
-    position: relative;
-    z-index: 2;
-    border-top: 1px solid var(--horizon);
-    padding-block: clamp(3rem, 7vw, 5rem);
-  }
-  .section-head {
-    margin-bottom: 2.4rem;
-  }
-  .section-head h2 {
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: clamp(1.5rem, 4vw, 2.1rem);
-    letter-spacing: -0.02em;
-    margin-top: 0.6rem;
-  }
-  .section-head p {
-    margin-top: 0.6rem;
-    color: var(--sage);
-    max-width: 48ch;
-  }
-
-  .features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-    gap: 1.2rem;
-  }
-  .feature {
-    background: var(--ink-2);
-    border: 1px solid var(--horizon);
-    border-radius: 1.1rem;
-    padding: 1.6rem 1.5rem 1.5rem;
-    transition: border-color 0.25s ease, transform 0.25s ease;
-  }
-  .feature:hover {
-    border-color: rgba(255, 107, 61, 0.45);
-    transform: translateY(-2px);
-  }
-  .feature .icon {
-    font-size: 1.5rem;
-    line-height: 1;
-    margin-bottom: 0.9rem;
-  }
-  .feature h3 {
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 1.15rem;
-    letter-spacing: -0.01em;
-    margin-bottom: 0.45rem;
-  }
-  .feature p {
-    color: var(--sage);
-    font-size: 0.98rem;
-    line-height: 1.5;
-    max-width: 36ch;
-  }
-
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
-    gap: 0;
-    border: 1px solid var(--horizon);
-    border-radius: 1.1rem;
-    overflow: hidden;
-    background: var(--ink-2);
-  }
-  .step {
-    padding: 1.8rem 1.6rem;
-    border-right: 1px solid var(--horizon);
-    border-bottom: 1px solid var(--horizon);
-  }
-  .step:last-child { border-right: none; }
-  .steps .step:nth-last-child(-n+2) { border-bottom: none; }
-  .step .num {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    color: var(--coral);
-    margin-bottom: 0.7rem;
-  }
-  .step h3 {
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 1.05rem;
-    margin-bottom: 0.4rem;
-  }
-  .step p {
-    color: var(--sage);
-    font-size: 0.95rem;
-    max-width: 28ch;
-  }
-
-  .ship-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.2rem;
-  }
-  .ship-col {
-    border: 1px solid var(--horizon);
-    border-radius: 1.1rem;
-    padding: 1.6rem;
-    background: var(--ink-2);
-  }
-  .ship-col h3 {
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 1.05rem;
-    margin-bottom: 1rem;
-  }
-  .ship-col ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-  }
-  .ship-col li {
-    color: var(--sage);
-    font-size: 0.95rem;
-    padding-left: 1.2rem;
-    position: relative;
-  }
-  .ship-col li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.55em;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--coral);
-  }
-  .ship-col.later li::before { background: var(--horizon); }
-  .ship-col.later h3 { color: var(--sage); }
-
-  .cta-band {
-    position: relative;
-    z-index: 2;
-    background: var(--ink-2);
-    border-top: 1px solid var(--horizon);
-    padding-block: clamp(3rem, 7vw, 5rem);
-  }
-  .cta-band h2 {
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: clamp(1.5rem, 4.5vw, 2.2rem);
-    letter-spacing: -0.02em;
-    margin-top: 0.7rem;
-    max-width: 20ch;
-  }
-  .cta-band p.sub {
-    margin-top: 0.8rem;
-    color: var(--sage);
-    max-width: 42ch;
-  }
-  .btn-row {
-    margin-top: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem 1.2rem;
-  }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 0.95rem 1.5rem;
-    border-radius: 999px;
-    border: 1px solid transparent;
-    cursor: pointer;
-    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-  }
-  .btn-primary { background: var(--coral); color: var(--ink); font-weight: 500; }
-  .btn-primary:hover { transform: translateY(-2px); background: #ff7d54; }
-  .btn-ghost { color: var(--cream); border-color: var(--horizon); }
-  .btn-ghost:hover { border-color: var(--coral); color: var(--coral); }
-
-  footer {
-    position: relative;
-    z-index: 2;
-    border-top: 1px solid var(--horizon);
-    padding-block: 2.4rem;
-  }
-  .foot-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.8rem 1.5rem;
-  }
-  .foot-inner .mono a { color: var(--sage); text-decoration: none; transition: color 0.2s ease; }
-  .foot-inner .mono a:hover { color: var(--coral); }
-
-  .reveal { opacity: 0; transform: translateY(16px); animation: rise 0.7s cubic-bezier(0.2,0.7,0.2,1) forwards; }
-  .reveal.d1 { animation-delay: 0.05s; }
-  .reveal.d2 { animation-delay: 0.16s; }
-  .reveal.d3 { animation-delay: 0.28s; }
-  .reveal.d4 { animation-delay: 0.4s; }
-  @keyframes rise { to { opacity: 1; transform: none; } }
-
-  @media (max-width: 720px) {
-    .ship-grid { grid-template-columns: 1fr; }
-    .step { border-right: none; }
-    .steps .step:nth-last-child(-n+2) { border-bottom: 1px solid var(--horizon); }
-    .steps .step:last-child { border-bottom: none; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .glow { animation: none; }
-    .reveal { opacity: 1; transform: none; animation: none; }
-    .btn, .back-link, .foot-inner .mono a, .feature { transition: none; }
-    .feature:hover { transform: none; }
-  }
-</style>
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
@@ -461,145 +37,44 @@
   </header>
 
   <main>
-    <section class="wrap hero">
-      <div class="hero-meta reveal d1">
-        <span class="mono eyebrow">Sober Send &nbsp;·&nbsp; <b>01</b></span>
-        <span class="tag">In development</span>
-      </div>
-      <h1 class="reveal d2">Remember <span class="light">When</span></h1>
-      <p class="lede reveal d3">A free daily nostalgia quiz for the decades you lived through. <span>Five fresh questions every morning — music, movies, TV, and the moments that shaped your life.</span></p>
-      <div class="category-strip reveal d4" aria-label="Quiz categories">
-        <span class="pill">🎵 Music</span>
-        <span class="pill">🎬 Movies</span>
-        <span class="pill">📺 TV</span>
-        <span class="pill">🌟 Events</span>
-        <span class="pill">🛍️ Products</span>
-        <span class="pill">1950s – 1980s</span>
-      </div>
+    <section class="wrap landing-hero">
+      <span class="mono">A Sober Send app</span>
+      <h1 style="margin-top: 1rem;">Remember <span class="light">When</span></h1>
+      <p class="tagline">A daily nostalgia quiz — five questions across the decades you lived through.</p>
     </section>
 
-    <section class="section" id="features">
+    <section class="screenshots">
       <div class="wrap">
-        <div class="section-head">
-          <span class="mono">What ships at launch</span>
-          <h2>Everything in v1.</h2>
-          <p>Remember When is built to be a small daily ritual — quick to play, satisfying to return to, and better with friends.</p>
-        </div>
-
-        <div class="features">
-          <article class="feature">
-            <div class="icon" aria-hidden="true">🎯</div>
-            <h3>The daily quiz</h3>
-            <p>Five multiple-choice questions every day, drawn from a rotating set across the 1950s through the 1980s. One round per day — come back tomorrow for a new set.</p>
-          </article>
-
-          <article class="feature">
-            <div class="icon" aria-hidden="true">📊</div>
-            <h3>Scores &amp; streaks</h3>
-            <p>Earn up to 500 points per round. Track your current streak, personal best, and a seven-day score chart on your home screen.</p>
-          </article>
-
-          <article class="feature">
-            <div class="icon" aria-hidden="true">👥</div>
-            <h3>Friends circle</h3>
-            <p>Share your invite code or send a link to add friends. See how everyone scored today, send a nudge when they haven't played, and keep each other honest.</p>
-          </article>
-
-          <article class="feature">
-            <div class="icon" aria-hidden="true">🔔</div>
-            <h3>Daily reminders</h3>
-            <p>Set a reminder time that works for you. Optional nudge notifications when friends tap you to play. Turn either on or off in settings.</p>
-          </article>
-
-          <article class="feature">
-            <div class="icon" aria-hidden="true">🎵</div>
-            <h3>Sound &amp; atmosphere</h3>
-            <p>Light quiz music and sound effects while you play — with a toggle in settings if you prefer silence.</p>
-          </article>
-
-          <article class="feature">
-            <div class="icon" aria-hidden="true">📱</div>
-            <h3>iOS &amp; Android</h3>
-            <p>A native mobile app built for phones and tablets. Sign up with email or jump in as a guest and create an account later.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" style="background: var(--ink-2);">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="mono">How it works</span>
-          <h2>Your morning ritual.</h2>
-          <p>Takes about two minutes. The same five questions for everyone, every day.</p>
-        </div>
-
-        <div class="steps">
-          <div class="step">
-            <div class="num">Step 01</div>
-            <h3>Open &amp; play</h3>
-            <p>Tap Play on the home screen. Answer five nostalgia questions before the day gets away from you.</p>
+        <div class="screenshots-grid" aria-label="App screenshots">
+          <div class="shot">
+            <span class="icon" aria-hidden="true">🏠</span>
+            <span class="label">Home</span>
           </div>
-          <div class="step">
-            <div class="num">Step 02</div>
-            <h3>See your score</h3>
-            <p>Get instant feedback on each answer. Finish the round, celebrate the wins, and lock in your daily score.</p>
+          <div class="shot">
+            <span class="icon" aria-hidden="true">🎯</span>
+            <span class="label">Daily quiz</span>
           </div>
-          <div class="step">
-            <div class="num">Step 03</div>
-            <h3>Keep the streak</h3>
-            <p>Play again tomorrow to extend your streak. Miss a day and it resets — but your best score stays.</p>
-          </div>
-          <div class="step">
-            <div class="num">Step 04</div>
-            <h3>Compare with friends</h3>
-            <p>Check the friends circle to see who played and who needs a nudge. A little friendly competition never hurt.</p>
+          <div class="shot">
+            <span class="icon" aria-hidden="true">👥</span>
+            <span class="label">Friends</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="download">
       <div class="wrap">
-        <div class="section-head">
-          <span class="mono">Launch scope</span>
-          <h2>Free now. More later.</h2>
-          <p>The daily quiz is free at launch. Optional paid packs are on the roadmap, not in v1.</p>
-        </div>
-
-        <div class="ship-grid">
-          <div class="ship-col">
-            <h3>Shipping at launch</h3>
-            <ul>
-              <li>Daily 5-question nostalgia quiz</li>
-              <li>Score tracking, streaks &amp; weekly chart</li>
-              <li>Friends circle with invite codes</li>
-              <li>Share links &amp; friend nudges</li>
-              <li>Daily reminder notifications</li>
-              <li>Account sign-up or guest play</li>
-              <li>Quiz music &amp; sound effects</li>
-            </ul>
-          </div>
-          <div class="ship-col later">
-            <h3>Coming in a future update</h3>
-            <ul>
-              <li>Era-themed question packs (50s, 60s, 70s, 80s)</li>
-              <li>Extra daily rounds</li>
-              <li>In-app store purchases</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-band">
-      <div class="wrap">
-        <span class="mono">Stay in the loop</span>
-        <h2>Be first to know when we ship.</h2>
-        <p class="sub">Remember When will live at <strong style="color: var(--cream); font-weight: 500;">rememberwhen.app</strong>. Join the Sober Send list for launch updates and early access.</p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="/#signup">Get on the list</a>
-          <a class="btn btn-ghost" href="/">Back to Sober Send</a>
+        <h2>Download the app</h2>
+        <p class="sub">Coming soon to the App Store and Google Play.</p>
+        <div class="store-row">
+          <span class="store-badge" aria-disabled="true" title="Coming soon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            App Store — soon
+          </span>
+          <span class="store-badge" aria-disabled="true" title="Coming soon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a1.002 1.002 0 0 1-.17-.285 1.002 1.002 0 0 1-.04-.3V2.4c0-.11.014-.21.04-.3a1.002 1.002 0 0 1 .17-.286zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1.002 1.002 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 9.99l-2.302 2.302-8.634-8.634z"/></svg>
+            Google Play — soon
+          </span>
         </div>
       </div>
     </section>
@@ -607,7 +82,12 @@
 
   <footer class="wrap">
     <div class="foot-inner">
-      <a class="brand" href="/"><span class="sunmark"></span>Sober Send</a>
+      <nav class="foot-links" aria-label="Remember When legal and support">
+        <a href="/rememberwhen">App</a>
+        <a href="/rememberwhen/privacy">Privacy</a>
+        <a href="/rememberwhen/terms">Terms</a>
+        <a href="/rememberwhen/support">Support</a>
+      </nav>
       <span class="mono">© 2026 Sober Send &nbsp;·&nbsp; <a href="mailto:sobersend@gmail.com">sobersend@gmail.com</a></span>
     </div>
   </footer>
