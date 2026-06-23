@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sober Send — Apps that improve your life</title>
+<meta name="description" content="Sober Send is an independent studio building small, clear-headed apps for an active, sober life. One project at a time." />
+<meta name="author" content="Sober Send" />
+<meta name="theme-color" content="#0A1E24" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Sober Send" />
+<meta property="og:description" content="Apps that improve your life. An independent studio for an active, sober life." />
+<meta property="og:url" content="https://sobersend.com/" />
+<meta property="og:site_name" content="Sober Send" />
+
+<!-- Rising-sun favicon -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A1E24'/%3E%3Ccircle cx='16' cy='21' r='8' fill='%23FF6B3D'/%3E%3Crect x='4' y='22' width='24' height='7' fill='%230A1E24'/%3E%3Cpath d='M5 21.5h22' stroke='%23F4EDDF' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --ink:      #0A1E24;  /* deep pre-dawn petrol — base sky */
+    --ink-2:    #0C2832;  /* lifted petrol — panels */
+    --horizon:  #16424A;  /* mid teal — borders, horizon band */
+    --cream:    #F4EDDF;  /* warm off-white — first light, primary text */
+    --sage:     #93A8A2;  /* desaturated sage — secondary text */
+    --coral:    #FF6B3D;  /* sunrise — the one bold accent */
+    --coral-dim: rgba(255, 107, 61, 0.14);
+
+    --display: "Bricolage Grotesque", sans-serif;
+    --body:    "Hanken Grotesk", sans-serif;
+    --mono:    "JetBrains Mono", monospace;
+
+    --maxw: 1080px;
+    --gutter: clamp(1.25rem, 5vw, 4rem);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--cream);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; }
+
+  ::selection { background: var(--coral); color: var(--ink); }
+
+  :focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: var(--maxw);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .mono {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sage);
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1.6rem;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.12rem;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    color: var(--cream);
+  }
+  .sunmark {
+    width: 13px; height: 13px;
+    border-radius: 50%;
+    background: var(--coral);
+    box-shadow: 0 0 14px 2px rgba(255,107,61,0.55);
+    flex: none;
+  }
+  .topbar .mono { margin: 0; }
+
+  /* ---------- hero ---------- */
+  .hero {
+    position: relative;
+    z-index: 2;
+    padding-top: clamp(3.5rem, 11vw, 8rem);
+    padding-bottom: clamp(3.5rem, 9vw, 7rem);
+  }
+  .eyebrow { display: block; margin-bottom: 1.6rem; }
+  .eyebrow b { color: var(--coral); font-weight: 500; }
+
+  h1 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(2.9rem, 9.5vw, 6.6rem);
+    line-height: 0.96;
+    letter-spacing: -0.03em;
+    max-width: 14ch;
+    text-wrap: balance;
+  }
+  h1 .light { color: var(--coral); }
+
+  .lede {
+    margin-top: 1.9rem;
+    max-width: 46ch;
+    font-size: clamp(1.05rem, 2.2vw, 1.28rem);
+    line-height: 1.5;
+    color: var(--cream);
+  }
+  .lede span { color: var(--sage); }
+
+  .cta-row {
+    margin-top: 2.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.4rem;
+    align-items: center;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.95rem 1.5rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .btn-primary { background: var(--coral); color: var(--ink); font-weight: 500; }
+  .btn-primary:hover { transform: translateY(-2px); background: #ff7d54; }
+  .btn-ghost { color: var(--cream); border-color: var(--horizon); }
+  .btn-ghost:hover { border-color: var(--coral); color: var(--coral); }
+  .btn .arrow { transition: transform 0.2s ease; }
+  .btn:hover .arrow { transform: translateY(2px); }
+
+  /* ---------- first-light horizon (signature) ---------- */
+  .sky {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .glow {
+    position: absolute;
+    left: 50%;
+    bottom: -34vh;
+    transform: translateX(-50%);
+    width: 150vw;
+    height: 80vh;
+    background:
+      radial-gradient(60% 100% at 50% 100%,
+        rgba(255,107,61,0.42) 0%,
+        rgba(255,107,61,0.16) 32%,
+        rgba(20,58,63,0.0) 68%);
+    filter: blur(8px);
+    animation: breathe 11s ease-in-out infinite;
+  }
+  .horizon-line {
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 12vh;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent, rgba(255,107,61,0.5) 50%, transparent);
+  }
+  .star {
+    position: absolute;
+    width: 2px; height: 2px;
+    border-radius: 50%;
+    background: var(--cream);
+    opacity: 0.45;
+  }
+  .star.a { top: 16%; left: 22%; }
+  .star.b { top: 24%; left: 74%; opacity: 0.3; }
+  .star.c { top: 11%; left: 58%; opacity: 0.22; }
+
+  @keyframes breathe {
+    0%, 100% { opacity: 0.85; transform: translateX(-50%) scale(1); }
+    50%      { opacity: 1;    transform: translateX(-50%) scale(1.06); }
+  }
+
+  /* ---------- manifest / products ---------- */
+  .manifest {
+    position: relative;
+    z-index: 2;
+    background: var(--ink);
+    border-top: 1px solid var(--horizon);
+    padding-block: clamp(3.5rem, 8vw, 6rem);
+  }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2.6rem;
+    flex-wrap: wrap;
+  }
+  .section-head h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(1.5rem, 4vw, 2.1rem);
+    letter-spacing: -0.02em;
+  }
+
+  .product {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.4rem 2rem;
+    align-items: start;
+    padding: 1.9rem 0;
+    border-top: 1px solid var(--horizon);
+    transition: border-color 0.25s ease;
+  }
+  .product:last-child { border-bottom: 1px solid var(--horizon); }
+  .product:hover { border-color: var(--coral); }
+
+  .product .num {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--sage);
+    padding-top: 0.35rem;
+  }
+  .product .name {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(1.5rem, 4.4vw, 2.3rem);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+  .product .desc {
+    margin-top: 0.5rem;
+    color: var(--sage);
+    max-width: 44ch;
+    font-size: 1rem;
+  }
+  .product .desc em { color: var(--cream); font-style: normal; opacity: 0.7; }
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.7rem;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .tag-live   { background: var(--coral-dim); color: var(--coral); border: 1px solid rgba(255,107,61,0.4); }
+  .tag-queued { background: transparent; color: var(--sage); border: 1px solid var(--horizon); }
+
+  .product.queued .name { color: var(--sage); }
+
+  /* ---------- signup ---------- */
+  .signup {
+    position: relative;
+    z-index: 2;
+    background: var(--ink-2);
+    border-top: 1px solid var(--horizon);
+    padding-block: clamp(3.5rem, 8vw, 6rem);
+  }
+  .signup h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(1.7rem, 5vw, 2.6rem);
+    letter-spacing: -0.02em;
+    margin-top: 0.8rem;
+    max-width: 18ch;
+  }
+  .signup p.sub { margin-top: 0.9rem; color: var(--sage); max-width: 40ch; }
+
+  form.notify {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    max-width: 520px;
+  }
+  form.notify input[type="email"] {
+    flex: 1 1 240px;
+    background: var(--ink);
+    border: 1px solid var(--horizon);
+    color: var(--cream);
+    font-family: var(--body);
+    font-size: 1rem;
+    padding: 0.95rem 1.1rem;
+    border-radius: 999px;
+    transition: border-color 0.2s ease;
+  }
+  form.notify input[type="email"]::placeholder { color: var(--sage); }
+  form.notify input[type="email"]:focus { outline: none; border-color: var(--coral); }
+  form.notify button { border: none; }
+  .form-note {
+    margin-top: 0.9rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    min-height: 1.1rem;
+  }
+  .form-note.ok  { color: var(--coral); }
+  .form-note.err { color: #ff9a78; }
+
+  /* ---------- footer ---------- */
+  footer {
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid var(--horizon);
+    padding-block: 2.4rem;
+  }
+  .foot-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.5rem;
+  }
+  .foot-inner .mono a { color: var(--sage); text-decoration: none; transition: color 0.2s ease; }
+  .foot-inner .mono a:hover { color: var(--coral); }
+
+  /* ---------- entrance animation ---------- */
+  .reveal { opacity: 0; transform: translateY(16px); animation: rise 0.7s cubic-bezier(0.2,0.7,0.2,1) forwards; }
+  .reveal.d1 { animation-delay: 0.05s; }
+  .reveal.d2 { animation-delay: 0.16s; }
+  .reveal.d3 { animation-delay: 0.28s; }
+  .reveal.d4 { animation-delay: 0.4s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 600px) {
+    .product { grid-template-columns: auto 1fr; }
+    .product .tag { grid-column: 2; justify-self: start; margin-top: 0.2rem; }
+    .topbar .mono { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .glow { animation: none; }
+    .reveal { opacity: 1; transform: none; animation: none; }
+    .btn, .product, form.notify input, .foot-inner .mono a { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="sky" aria-hidden="true">
+    <span class="star a"></span>
+    <span class="star b"></span>
+    <span class="star c"></span>
+    <div class="horizon-line"></div>
+    <div class="glow"></div>
+  </div>
+
+  <header class="wrap topbar">
+    <a class="brand" href="/"><span class="sunmark"></span>Sober Send</a>
+    <span class="mono">Est. 2026</span>
+  </header>
+
+  <main>
+    <section class="wrap hero">
+      <span class="mono eyebrow reveal d1">An independent app studio &nbsp;·&nbsp; <b>Now building</b></span>
+      <h1 class="reveal d2">Apps that improve <span class="light">your life.</span></h1>
+      <p class="lede reveal d3">Sober Send is an independent studio building small, clear-headed apps for an active, sober life. <span>One project at a time — here's what's on the way.</span></p>
+      <div class="cta-row reveal d4">
+        <a class="btn btn-primary" href="#manifest">See what we're building <span class="arrow">↓</span></a>
+        <a class="btn btn-ghost" href="#signup">Get on the list</a>
+      </div>
+    </section>
+
+    <section class="manifest" id="manifest">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>The manifest</h2>
+          <span class="mono">Now building &nbsp;·&nbsp; 01 in flight</span>
+        </div>
+
+        <article class="product">
+          <span class="num">01</span>
+          <div>
+            <div class="name">Remember When</div>
+            <p class="desc">Our first project — a new way to hold onto the moments worth keeping. <em>(More soon.)</em></p>
+          </div>
+          <span class="tag tag-live">In development</span>
+        </article>
+
+        <article class="product queued">
+          <span class="num">02</span>
+          <div>
+            <div class="name">Next project</div>
+            <p class="desc">New apps land here as we build and ship them. The marketplace grows one project at a time.</p>
+          </div>
+          <span class="tag tag-queued">Queued</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="signup" id="signup">
+      <div class="wrap">
+        <span class="mono">Stay in the loop</span>
+        <h2>Be first to know when we ship.</h2>
+        <p class="sub">Updates, early access, and the occasional note from the studio. No noise.</p>
+
+        <form class="notify" id="notifyForm" novalidate>
+          <input type="email" id="email" name="email" placeholder="you@email.com" autocomplete="email" required aria-label="Email address" />
+          <button type="submit" class="btn btn-primary">Notify me</button>
+        </form>
+        <div class="form-note mono" id="formNote" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div class="foot-inner">
+      <a class="brand" href="/"><span class="sunmark"></span>Sober Send</a>
+      <span class="mono">© 2026 Sober Send &nbsp;·&nbsp; <a href="mailto:sobersend@gmail.com">sobersend@gmail.com</a></span>
+    </div>
+  </footer>
+
+<script>
+  // ---- Email signup ----
+  // To collect signups: create a free form at https://formspree.io,
+  // then paste your endpoint below (replace YOUR_FORM_ID).
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+
+  const form = document.getElementById("notifyForm");
+  const note = document.getElementById("formNote");
+  const emailInput = document.getElementById("email");
+
+  function setNote(msg, kind) {
+    note.textContent = msg;
+    note.className = "form-note mono " + (kind || "");
+  }
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const email = emailInput.value.trim();
+    if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      setNote("Enter a valid email address.", "err");
+      emailInput.focus();
+      return;
+    }
+
+    if (FORMSPREE_ENDPOINT.includes("YOUR_FORM_ID")) {
+      setNote("Signup isn't connected yet — add your Formspree ID.", "err");
+      return;
+    }
+
+    setNote("Sending…", "");
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (res.ok) {
+        form.reset();
+        setNote("You're on the list. Talk soon.", "ok");
+      } else {
+        setNote("Something went wrong — try again.", "err");
+      }
+    } catch (err) {
+      setNote("Network error — try again.", "err");
+    }
+  });
+</script>
+</body>
+</html>
