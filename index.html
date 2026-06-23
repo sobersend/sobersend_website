@@ -239,13 +239,14 @@
 
   .product {
     display: grid;
-    grid-template-columns: auto 1fr auto;
     gap: 1.4rem 2rem;
     align-items: start;
     padding: 1.9rem 0;
     border-top: 1px solid var(--horizon);
     transition: border-color 0.25s ease;
   }
+  a.product { grid-template-columns: auto 1fr auto auto; }
+  article.product { grid-template-columns: auto 1fr auto; }
   .product:last-child { border-bottom: 1px solid var(--horizon); }
   .product:hover { border-color: var(--coral); }
 
@@ -262,6 +263,22 @@
     letter-spacing: -0.02em;
     line-height: 1.05;
   }
+  a.product {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  a.product:hover .name { color: var(--coral); }
+  a.product .go {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sage);
+    align-self: center;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+  a.product:hover .go { color: var(--coral); transform: translateX(3px); }
   .product .desc {
     margin-top: 0.5rem;
     color: var(--sage);
@@ -361,6 +378,7 @@
   @media (max-width: 600px) {
     .product { grid-template-columns: auto 1fr; }
     .product .tag { grid-column: 2; justify-self: start; margin-top: 0.2rem; }
+    a.product .go { display: none; }
     .topbar .mono { display: none; }
   }
 
@@ -405,14 +423,15 @@
           <span class="mono">Now building &nbsp;·&nbsp; 01 in flight</span>
         </div>
 
-        <article class="product">
+        <a class="product" href="/rememberwhen">
           <span class="num">01</span>
           <div>
             <div class="name">Remember When</div>
-            <p class="desc">Our first project — a new way to hold onto the moments worth keeping. <em>(More soon.)</em></p>
+            <p class="desc">A daily nostalgia quiz — five questions across the decades you lived through.</p>
           </div>
           <span class="tag tag-live">In development</span>
-        </article>
+          <span class="go" aria-hidden="true">Learn more →</span>
+        </a>
 
         <article class="product queued">
           <span class="num">02</span>
