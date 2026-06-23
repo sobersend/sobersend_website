@@ -433,6 +433,7 @@
 
         <form class="notify" id="notifyForm" novalidate>
           <input type="email" id="email" name="email" placeholder="you@email.com" autocomplete="email" required aria-label="Email address" />
+          <input type="text" id="gotcha" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
           <button type="submit" class="btn btn-primary">Notify me</button>
         </form>
         <div class="form-note mono" id="formNote" role="status" aria-live="polite"></div>
@@ -451,7 +452,7 @@
   // ---- Email signup ----
   // To collect signups: create a free form at https://formspree.io,
   // then paste your endpoint below (replace YOUR_FORM_ID).
-  const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/xqevakzl";
 
   const form = document.getElementById("notifyForm");
   const note = document.getElementById("formNote");
@@ -477,11 +478,12 @@
     }
 
     setNote("Sending…", "");
+    const gotcha = document.getElementById("gotcha");
     try {
       const res = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
-        headers: { Accept: "application/json" },
-        body: JSON.stringify({ email }),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ email, _gotcha: gotcha ? gotcha.value : "" }),
       });
       if (res.ok) {
         form.reset();
