@@ -1,11 +1,11 @@
 :root {
-  --ink:      #0A1E24;
-  --ink-2:    #0C2832;
-  --horizon:  #16424A;
-  --cream:    #F4EDDF;
-  --sage:     #93A8A2;
-  --coral:    #FF6B3D;
-  --coral-dim: rgba(255, 107, 61, 0.14);
+  --ink:      #14181C;
+  --ink-2:    #1b2026;
+  --horizon:  rgba(245, 241, 231, 0.12);
+  --cream:    #F5F1E7;
+  --sage:     #a19c8e;
+  --coral:    #FF4E1F;
+  --coral-dim: rgba(255, 78, 31, 0.14);
 
   --display: "Bricolage Grotesque", sans-serif;
   --body:    "Hanken Grotesk", sans-serif;
@@ -78,10 +78,10 @@ a { color: inherit; }
   color: var(--cream);
 }
 .sunmark {
-  width: 13px; height: 13px;
-  border-radius: 50%;
+  width: 9px; height: 9px;
+  border-radius: 2px;
   background: var(--coral);
-  box-shadow: 0 0 14px 2px rgba(255,107,61,0.55);
+  transform: rotate(45deg);
   flex: none;
 }
 .back-link {
@@ -114,8 +114,8 @@ main { flex: 1; position: relative; z-index: 2; }
   height: 80vh;
   background:
     radial-gradient(60% 100% at 50% 100%,
-      rgba(255,107,61,0.42) 0%,
-      rgba(255,107,61,0.16) 32%,
+        rgba(255,78,31,0.42) 0%,
+        rgba(255,78,31,0.16) 32%,
       rgba(20,58,63,0.0) 68%);
   filter: blur(8px);
   animation: breathe 11s ease-in-out infinite;
@@ -126,7 +126,7 @@ main { flex: 1; position: relative; z-index: 2; }
   bottom: 12vh;
   height: 1px;
   background: linear-gradient(90deg,
-    transparent, rgba(255,107,61,0.5) 50%, transparent);
+      transparent, rgba(255,78,31,0.5) 50%, transparent);
 }
 .star {
   position: absolute;
@@ -323,7 +323,7 @@ main { flex: 1; position: relative; z-index: 2; }
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-.prose a:hover { color: #ff7d54; }
+.prose a:hover { color: #ff6b42; }
 
 /* ---------- support ---------- */
 .support-hero {
@@ -352,7 +352,7 @@ main { flex: 1; position: relative; z-index: 2; }
   color: var(--coral);
   text-decoration: none;
 }
-.support-email:hover { color: #ff7d54; }
+.support-email:hover { color: #ff6b42; }
 
 .faq {
   padding-block: clamp(2rem, 5vw, 3.5rem);
