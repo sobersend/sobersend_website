@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "6NQDWWR6R6.com.rememberwhen.trivia",
+        "paths": [
+          "/rememberwhen/invite/",
+          "/rememberwhen/invite/*",
+          "/rememberwhen/group/",
+          "/rememberwhen/group/*"
+        ]
+      }
+    ]
+  }
+}
