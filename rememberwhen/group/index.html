@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Join the group — Remember When</title>
+    <meta name="robots" content="noindex" />
+    <style>
+      :root {
+        --brand: #ff4f81;
+        --brand-dark: #e63e6d;
+        --ink: #1a1a1a;
+        --muted: #7a7a7a;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: linear-gradient(160deg, #fff 0%, #fff5f8 100%);
+        color: var(--ink);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+      .card { width: 100%; max-width: 420px; text-align: center; }
+      .logo {
+        width: 84px; height: 84px; border-radius: 20px;
+        background: linear-gradient(135deg, var(--brand), #ff87a9);
+        display: inline-flex; align-items: center; justify-content: center;
+        font-size: 42px; margin-bottom: 20px;
+        box-shadow: 0 10px 30px rgba(255, 79, 129, 0.3);
+      }
+      h1 { font-size: 24px; margin: 0 0 8px; }
+      p { color: var(--muted); font-size: 16px; line-height: 1.5; margin: 0 0 24px; }
+      a.btn {
+        display: block; text-decoration: none; background: var(--brand);
+        color: #fff; font-weight: 700; font-size: 17px; padding: 16px;
+        border-radius: 999px; box-shadow: 0 6px 18px rgba(255, 79, 129, 0.35);
+        margin-bottom: 12px;
+      }
+      a.btn:active { background: var(--brand-dark); }
+      a.ghost { background: #fff; color: var(--brand); border: 2px solid var(--brand); box-shadow: none; }
+      .fine { margin-top: 8px; font-size: 13px; color: #aaa; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="logo">🧠</div>
+      <h1>You're invited to a group!</h1>
+      <p>Join the group on <strong>Remember When</strong> — the daily nostalgia quiz.</p>
+      <a class="btn" id="open" href="#">Open the app</a>
+      <a class="btn ghost" id="store" href="#">Get the app</a>
+      <div class="fine">Opening the app automatically…</div>
+    </div>
+
+    <script src="../config.js"></script>
+    <script src="../rw.js"></script>
+    <script>
+      var token = RW.query("t");
+      var store = document.getElementById("store");
+      var open = document.getElementById("open");
+      store.href = RW.storeUrl();
+
+      function launch() {
+        if (token) RW.openApp("group/" + encodeURIComponent(token));
+        else RW.gotoStore();
+      }
+      open.addEventListener("click", function (e) {
+        e.preventDefault();
+        launch();
+      });
+      launch();
+    </script>
+  </body>
+</html>
