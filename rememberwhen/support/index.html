@@ -3,69 +3,341 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Support — Remember When</title>
-<meta name="description" content="Get help with Remember When — add friends, daily quiz rules, and account deletion." />
+<title>Help &amp; Support — Remember When</title>
+<meta name="description" content="Get help with the Remember When daily nostalgia quiz, including friends, groups, daily quiz rules, and account deletion." />
 <meta name="author" content="SoberSend" />
-<meta name="theme-color" content="#14181C" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314181C'/%3E%3Crect x='14' y='14' width='9' height='9' rx='1' fill='%23FF4E1F' transform='rotate(45 18.5 18.5)'/%3E%3C/svg%3E" />
+<meta name="theme-color" content="#FAF4E8" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Help &amp; Support — Remember When" />
+<meta property="og:description" content="Answers and support for the Remember When daily nostalgia quiz by SoberSend." />
+<meta property="og:url" content="https://sobersend.com/rememberwhen/support/" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233E7A6D'/%3E%3Crect x='7' y='10' width='18' height='15' rx='4' fill='%23F7F1E4'/%3E%3Crect x='10' y='13' width='12' height='8' rx='2' fill='%23FF9C4A'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper: #FAF4E8;
+    --surface: #FFFFFF;
+    --ink: #2A2320;
+    --muted: #5A4F44;
+    --teal: #3E7A6D;
+    --teal-deep: #2F6357;
+    --teal-pale: #DCEAE4;
+    --teal-border: #B9D4CB;
+    --orange: #E45F24;
+    --orange-light: #FF9C4A;
+    --border: #E7DFCF;
+    --display: "Fraunces", Georgia, serif;
+    --body: "Nunito", system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 18px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--teal-deep); }
+  a:hover { color: var(--orange); }
+  a:focus-visible {
+    outline: 3px solid var(--teal);
+    outline-offset: 4px;
+    border-radius: 8px;
+  }
+  ::selection { background: var(--teal-pale); color: var(--ink); }
+  .wrap {
+    width: min(100% - 40px, 1040px);
+    margin-inline: auto;
+  }
+  .topline {
+    height: 10px;
+    background: linear-gradient(90deg, var(--teal), #5E9C8F 42%, var(--orange-light));
+  }
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-block: 24px;
+  }
+  .brand, .back-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 800;
+  }
+  .brand { gap: 10px; color: var(--ink); }
+  .brand-icon {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--teal);
+    color: #FFF8E8;
+    font-size: 21px;
+    box-shadow: 0 6px 16px rgba(47, 99, 87, .18);
+  }
+  .back-link { gap: 8px; color: var(--teal-deep); }
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(54px, 8vw, 92px) 0 clamp(48px, 7vw, 76px);
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 440px;
+    height: 440px;
+    top: -120px;
+    right: -150px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 156, 74, .25), rgba(228, 95, 36, .07) 58%, transparent 72%);
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    border: 2px solid var(--teal-border);
+    border-radius: 999px;
+    background: var(--teal-pale);
+    color: var(--teal-deep);
+    font-size: 16px;
+    font-weight: 800;
+  }
+  h1, h2, h3 { font-family: var(--display); }
+  h1 {
+    max-width: 760px;
+    margin: 24px 0 0;
+    font-size: clamp(48px, 8vw, 78px);
+    line-height: 1.04;
+    letter-spacing: -.02em;
+  }
+  .gradient {
+    background: linear-gradient(105deg, #FFB84D 8%, var(--orange) 92%);
+    background-clip: text;
+    color: transparent;
+  }
+  .lede {
+    max-width: 620px;
+    margin: 22px 0 0;
+    color: var(--muted);
+    font-size: clamp(20px, 2.4vw, 23px);
+    font-weight: 600;
+  }
+  .email-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+    padding: 16px 22px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--surface);
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 800;
+    box-shadow: 0 12px 30px rgba(62, 50, 40, .09);
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  .email-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--teal-border);
+    color: var(--teal-deep);
+    box-shadow: 0 16px 36px rgba(62, 50, 40, .13);
+  }
+  .email-icon {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: var(--teal-pale);
+    color: var(--teal-deep);
+    font-size: 21px;
+  }
+  .email-copy { display: grid; line-height: 1.25; }
+  .email-copy small { color: var(--muted); font-size: 13px; font-weight: 700; }
+
+  .faq-section {
+    padding: clamp(54px, 8vw, 88px) 0;
+    border-top: 1px solid var(--border);
+    background: rgba(255, 255, 255, .42);
+  }
+  .section-head { max-width: 650px; }
+  .section-label {
+    color: var(--teal-deep);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+  }
+  h2 {
+    margin: 10px 0 0;
+    font-size: clamp(34px, 5vw, 48px);
+    line-height: 1.12;
+  }
+  .section-intro { margin: 12px 0 0; color: var(--muted); }
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 34px;
+  }
+  .faq-card {
+    padding: clamp(24px, 4vw, 32px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    background: var(--surface);
+    box-shadow: 0 10px 25px rgba(62, 50, 40, .05);
+  }
+  .faq-card h3 { margin: 0; font-size: 25px; line-height: 1.25; }
+  .faq-card p { margin: 13px 0 0; color: var(--muted); }
+  .faq-card strong { color: var(--ink); }
+  .faq-card a { font-weight: 800; }
+  .faq-card--wide {
+    grid-column: 1 / -1;
+    background: linear-gradient(125deg, var(--teal-deep), var(--teal) 52%, #4D8B7E);
+    color: white;
+  }
+  .faq-card--wide p { color: rgba(255, 255, 255, .86); }
+  .faq-card--wide strong { color: white; }
+  .faq-card--wide a { color: white; }
+  .faq-card--wide a:hover { color: #FFE0C1; }
+
+  footer {
+    padding: 34px 0 42px;
+    border-top: 1px solid var(--border);
+  }
+  .footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px 32px;
+  }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 18px 28px; }
+  .footer-links a { font-weight: 800; text-decoration: none; }
+  .copyright { margin: 22px 0 0; color: var(--muted); font-size: 16px; font-weight: 600; }
+
+  @media (max-width: 700px) {
+    .wrap { width: min(100% - 32px, 1040px); }
+    .topbar { align-items: flex-start; }
+    .brand-icon { width: 34px; height: 34px; }
+    .back-link { font-size: 16px; }
+    .faq-grid { grid-template-columns: 1fr; }
+    .faq-card--wide { grid-column: auto; }
+    .email-card { width: 100%; padding-inline: 16px; }
+    .email-copy { min-width: 0; }
+    .email-copy span { overflow-wrap: anywhere; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .email-card { transition: none; }
+    .email-card:hover { transform: none; }
+  }
+</style>
 </head>
 <body>
-
-  <div class="sky" aria-hidden="true">
-    <span class="star a"></span>
-    <span class="star b"></span>
-    <span class="star c"></span>
-    <div class="horizon-line"></div>
-    <div class="glow"></div>
-  </div>
+  <div class="topline" aria-hidden="true"></div>
 
   <header class="wrap topbar">
-    <a class="brand" href="/"><span class="sunmark"></span>SoberSend</a>
-    <a class="back-link" href="/rememberwhen">← Remember When</a>
+    <a class="brand" href="/">
+      <span class="brand-icon" aria-hidden="true">✦</span>
+      <span>SoberSend</span>
+    </a>
+    <a class="back-link" href="/rememberwhen/"><span aria-hidden="true">←</span> Remember When</a>
   </header>
 
   <main>
-    <section class="wrap support-hero">
-      <span class="mono">Remember When</span>
-      <h1 style="margin-top: 0.7rem;">Help &amp; Support</h1>
-      <p>Questions, bugs, or account requests — we're here to help.</p>
-      <a class="support-email" href="mailto:sobersend@gmail.com">✉️ sobersend@gmail.com</a>
+    <section class="hero">
+      <div class="wrap">
+        <span class="eyebrow"><span aria-hidden="true">📺</span> Remember When support</span>
+        <h1>How can we <span class="gradient">help?</span></h1>
+        <p class="lede">Find quick answers below, or send us an email. We’re happy to help with questions, bugs, and account requests.</p>
+        <a class="email-card" href="mailto:sobersend@gmail.com">
+          <span class="email-icon" aria-hidden="true">✉</span>
+          <span class="email-copy">
+            <small>Email support</small>
+            <span>sobersend@gmail.com</span>
+          </span>
+        </a>
+      </div>
     </section>
 
-    <section class="wrap faq">
-      <h2>Frequently asked questions</h2>
-      <div class="faq-list">
-        <div class="faq-item">
-          <h3>How do I add friends?</h3>
-          <p>Go to the <strong>Friends</strong> tab and tap the add button. You can share your personal invite code (it looks like <strong>RMBR-XXXX</strong>) or send an invite link by text or email. Friends can also enter your code on the Invite Friends screen. Once they accept, you'll see each other's daily scores.</p>
+    <section class="faq-section" aria-labelledby="faq-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-label">Frequently asked questions</span>
+          <h2 id="faq-heading">The answers you need.</h2>
+          <p class="section-intro">A few helpful details about playing, connecting with friends, and managing your account.</p>
         </div>
-        <div class="faq-item">
-          <h3>What are the daily quiz rules?</h3>
-          <p>Each day you get <strong>five multiple-choice questions</strong> drawn from nostalgia trivia — music, movies, TV, events, and products from the 1950s through the 1980s. You can complete the official daily quiz <strong>once per calendar day</strong>. Your score (up to 500 points) and streak update when you finish. Come back tomorrow for a fresh set.</p>
-        </div>
-        <div class="faq-item">
-          <h3>How do I delete my account?</h3>
-          <p>Email <strong><a href="mailto:sobersend@gmail.com" style="color: var(--coral);">sobersend@gmail.com</a></strong> from the address linked to your account and ask us to delete it. We'll verify the request and remove your personal data within a reasonable time. You can also stop using the app at any time without contacting us.</p>
+
+        <div class="faq-grid">
+          <article class="faq-card">
+            <h3>How does the daily quiz work?</h3>
+            <p>Every day you get <strong>five multiple-choice nostalgia questions</strong> tailored to your era. You can complete the official daily quiz once per calendar day. Your score and streak update when you finish.</p>
+          </article>
+
+          <article class="faq-card">
+            <h3>How do I add friends?</h3>
+            <p>Open the <strong>Friends</strong> tab and tap the add button. Share your personal invite code or invite link. Once your friend accepts, you’ll be able to compare daily scores.</p>
+          </article>
+
+          <article class="faq-card">
+            <h3>How do Groups work?</h3>
+            <p>Create or join a Group using an invite link. Group members can see who has played each day and compare scores together on the leaderboard.</p>
+          </article>
+
+          <article class="faq-card">
+            <h3>Can I review past quizzes?</h3>
+            <p>Yes. Your quiz history lets you revisit past results and review your answers. You can also follow your recent performance in the weekly stats chart.</p>
+          </article>
+
+          <article class="faq-card">
+            <h3>How do I change my theme or music?</h3>
+            <p>Open Settings in the app to choose from the available color themes and quiz music tracks. Your selections can be changed whenever you like.</p>
+          </article>
+
+          <article class="faq-card">
+            <h3>Is Remember When available on Android?</h3>
+            <p>Not yet. Remember When is currently available on iPhone, and the Android version is coming soon.</p>
+          </article>
+
+          <article class="faq-card faq-card--wide">
+            <h3>How do I delete my account?</h3>
+            <p>Email <strong><a href="mailto:sobersend@gmail.com">sobersend@gmail.com</a></strong> from the address linked to your account and ask us to delete it. We’ll verify your request and remove your personal data within a reasonable time.</p>
+          </article>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="wrap">
-    <div class="foot-inner">
-      <nav class="foot-links" aria-label="Remember When legal and support">
-        <a href="/rememberwhen">App</a>
-        <a href="/rememberwhen/privacy">Privacy</a>
-        <a href="/rememberwhen/terms">Terms</a>
-        <a href="/rememberwhen/support">Support</a>
-      </nav>
-      <span class="mono">© 2026 SoberSend &nbsp;·&nbsp; <a href="mailto:sobersend@gmail.com">sobersend@gmail.com</a></span>
+  <footer>
+    <div class="wrap">
+      <div class="footer-row">
+        <a class="brand" href="/rememberwhen/">
+          <span class="brand-icon" aria-hidden="true">✦</span>
+          <span>Remember When</span>
+        </a>
+        <nav class="footer-links" aria-label="Remember When">
+          <a href="/rememberwhen/">App</a>
+          <a href="/rememberwhen/privacy/">Privacy</a>
+          <a href="/rememberwhen/terms/">Terms</a>
+          <a href="/rememberwhen/support/" aria-current="page">Support</a>
+        </nav>
+      </div>
+      <p class="copyright">© 2026 SoberSend · <a href="mailto:sobersend@gmail.com">sobersend@gmail.com</a></p>
     </div>
   </footer>
-
 </body>
 </html>
