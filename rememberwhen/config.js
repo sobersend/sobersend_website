@@ -8,13 +8,11 @@ window.RW_CONFIG = {
   iosUrl:
     "https://apps.apple.com/us/app/remember-when-nostalgia-quiz/id6785160732",
 
-  // Google Play listing. LEAVE EMPTY until the Android app is public — while
-  // empty, Android visitors are sent to `fallbackUrl` instead. When Play goes
-  // live, paste the listing URL here (e.g.
-  // "https://play.google.com/store/apps/details?id=com.example.rememberwhen").
-  androidUrl: "",
+  // Live Google Play listing.
+  androidUrl:
+    "https://play.google.com/store/apps/details?id=com.rememberwhen.app",
 
-  // Where to send Android (until Play is live) and desktop visitors.
+  // Where to send desktop visitors.
   fallbackUrl: "https://sobersend.com/rememberwhen",
 
   // Custom URL scheme the installed app registers — do not change unless the
