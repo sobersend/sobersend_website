@@ -192,7 +192,8 @@ a:focus-visible {
   color: var(--ink);
 }
 
-.prose ul {
+.prose ul,
+.prose ol {
   margin: 10px 0 24px;
   padding-left: 25px;
   color: var(--muted);
