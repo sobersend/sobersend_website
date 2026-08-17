@@ -13,6 +13,18 @@ email signup). Separate subpages under **`/rememberwhen/`** support the Remember
 When mobile app (App Store / Google Play compliance: landing, privacy, terms,
 support).
 
+## Brand & strategy references
+
+Living strategy docs live under **`docs/`**. Prefer these over inferring brand
+intent from HTML alone. Homepage copy in `index.html` should stay aligned with
+the charter over time, but the Markdown files are the durable artifacts.
+
+| Doc | Path | Use for |
+|-----|------|---------|
+| Brand charter | [`docs/brand-charter.md`](docs/brand-charter.md) | Brand definition, voice, architecture, messaging, guardrails |
+| Founder plan | [`docs/founder-plan.md`](docs/founder-plan.md) | Company formation / launch tracker, open decisions, flags |
+| Index | [`docs/README.md`](docs/README.md) | Short map of the above |
+
 ## Deployment — read carefully, easy to break
 
 - Hosted on **GitHub Pages** from the `main` branch, **root folder**. Pushing to
