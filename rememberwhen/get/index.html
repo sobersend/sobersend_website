@@ -3,8 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="/rememberwhen/img/favicon-32.png?v=teal-tv" type="image/png" sizes="32x32" />
-    <link rel="apple-touch-icon" href="/rememberwhen/img/apple-touch-icon.png?v=teal-tv" />
     <title>Get Remember When</title>
     <meta name="robots" content="noindex" />
     <style>
@@ -74,8 +72,8 @@
     <script>
       var store = document.getElementById("store");
       store.href = RW.storeUrl();
-      // Auto-forward; the button is the manual fallback if the redirect is blocked.
-      RW.gotoStore();
+      // Log ?c= then auto-forward. Button is the fallback if redirect is blocked.
+      RW.gotoStoreAfterLog();
       if (RW.platform() === "other") {
         document.getElementById("sub").textContent =
           "Open this link on your phone to download the app.";
