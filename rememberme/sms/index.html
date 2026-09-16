@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SMS Opt-In — RememberMe</title>
+<meta name="description" content="Public SMS opt-in for RememberMe by SoberSend. Agree to receive transactional family-question texts." />
+<meta name="author" content="SoberSend" />
+<meta name="theme-color" content="#14181C" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="SMS Opt-In — RememberMe" />
+<meta property="og:description" content="Sign up to receive transactional RememberMe SMS. Message frequency varies. Message and data rates may apply." />
+<meta property="og:url" content="https://sobersend.com/rememberme/sms/" />
+<meta property="og:site_name" content="SoberSend" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314181C'/%3E%3Crect x='14' y='14' width='9' height='9' rx='1' fill='%23FF4E1F' transform='rotate(45 18.5 18.5)'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #14181C;
+    --paper: #F5F1E7;
+    --flare: #FF4E1F;
+    --muted: #5b5548;
+    --card: #fffdf8;
+    --line: #e4dfd2;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Hanken Grotesk", sans-serif;
+    line-height: 1.65;
+  }
+  a { color: var(--ink); }
+  a:hover { color: var(--flare); }
+  a:focus-visible {
+    outline: 2px solid var(--flare);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0 8px;
+  }
+  .brand { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; text-decoration: none; }
+  .back { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
+  h1 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    line-height: 1.15;
+    margin: 28px 0 8px;
+  }
+  h2 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 1.25rem;
+    margin: 2rem 0 0.6rem;
+  }
+  .meta { color: var(--muted); font-size: 0.95rem; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px;
+    margin: 20px 0;
+  }
+  label.field {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  input[type="tel"] {
+    width: 100%;
+    font: inherit;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fff;
+    color: var(--ink);
+  }
+  .consent {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin: 18px 0;
+  }
+  .consent input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 3px;
+    flex-shrink: 0;
+    accent-color: var(--flare);
+  }
+  .consent span { font-size: 0.95rem; }
+  button {
+    font: inherit;
+    font-weight: 700;
+    background: var(--ink);
+    color: var(--paper);
+    border: 0;
+    border-radius: 999px;
+    padding: 12px 22px;
+    cursor: pointer;
+  }
+  button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  button:hover:not(:disabled) { background: var(--flare); color: #fff; }
+  .ok {
+    display: none;
+    background: #e8f4ea;
+    border: 1px solid #b7d8bc;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-top: 16px;
+  }
+  .ok.show { display: block; }
+  .mock {
+    font-size: 0.95rem;
+    background: #fff;
+    border: 1px dashed var(--line);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .mock .title {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  ul { padding-left: 1.2rem; }
+  li { margin: 0.35rem 0; }
+  footer {
+    margin: 48px 0 32px;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  footer nav { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/">SoberSend</a>
+      <a class="back" href="/rememberme/">← RememberMe</a>
+    </header>
+
+    <main>
+      <h1>SMS Opt-In</h1>
+      <p class="meta">RememberMe by SoberSend · registered messaging brand Matthew Stitz</p>
+      <p>RememberMe sends transactional SMS so a family member (a Legend) can answer a question in their own voice. This page is the public Call-to-Action reviewers and users can open without a login.</p>
+
+      <div class="card">
+        <form id="sms-opt-in" action="#" method="post" novalidate>
+          <label class="field" for="mobile">Mobile number</label>
+          <input id="mobile" name="mobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="(555) 555-0100" required />
+
+          <label class="consent">
+            <input id="agree" name="agree" type="checkbox" />
+            <span>
+              I agree to receive recurring transactional SMS from RememberMe (Matthew Stitz / SoberSend), including family questions and a unique HTTPS link to answer in my own voice. Message frequency varies. Message and data rates may apply. Reply STOP to cancel or HELP for help. See the
+              <a href="/rememberme/privacy/">Privacy Policy</a> (mobile numbers are not shared with third parties for marketing) and
+              <a href="/rememberme/terms/">Terms of Service</a>.
+            </span>
+          </label>
+
+          <button id="submit" type="submit" disabled>Agree and Save Number</button>
+        </form>
+        <p class="ok" id="thanks" role="status">You’re opted in to RememberMe SMS. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to cancel, HELP for help.</p>
+      </div>
+
+      <h2>What the texts are</h2>
+      <ul>
+        <li>Transactional family-question invitations only. No marketing, no 2FA codes.</li>
+        <li>Sample: “Star, it’s RememberMe. Matt has a question for you. What is your earliest childhood memory? Tap to answer out loud: https://rememberme.sobersend.com/s/… Reply STOP to opt out, HELP for help.”</li>
+        <li>Frequency depends on how often a family member sends a question.</li>
+        <li>Help: <a href="mailto:sobersend@gmail.com">sobersend@gmail.com</a></li>
+      </ul>
+
+      <h2>How it also works in the app</h2>
+      <p>Owners who already have a RememberMe account can enter the Legend’s number on the Send screen. That screen is behind sign-in, so the same consent language is shown here for reviewers:</p>
+      <div class="mock" aria-label="In-app SMS consent replica">
+        <div class="title">Send Star her first question</div>
+        <p><strong>Mobile number</strong><br />+1 (206) 251-7838</p>
+        <label class="consent" style="margin: 8px 0 0;">
+          <input type="checkbox" disabled />
+          <span>I confirm Star agreed to receive RememberMe SMS at this number. Message frequency varies. Message and data rates may apply. Reply STOP to cancel, HELP for help. <a href="/rememberme/privacy/">Privacy Policy</a> · <a href="/rememberme/terms/">Terms of Service</a>.</span>
+        </label>
+      </div>
+    </main>
+
+    <footer>
+      <nav aria-label="RememberMe legal">
+        <a href="/rememberme/">RememberMe</a>
+        <a href="/rememberme/sms/" aria-current="page">SMS Opt-In</a>
+        <a href="/rememberme/privacy/">Privacy Policy</a>
+        <a href="/rememberme/terms/">Terms of Service</a>
+      </nav>
+      <p>© 2026 SoberSend · <a href="mailto:sobersend@gmail.com">sobersend@gmail.com</a></p>
+    </footer>
+  </div>
+  <script>
+    (function () {
+      var form = document.getElementById("sms-opt-in");
+      var agree = document.getElementById("agree");
+      var submit = document.getElementById("submit");
+      var thanks = document.getElementById("thanks");
+      function sync() { submit.disabled = !agree.checked; }
+      agree.addEventListener("change", sync);
+      sync();
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        if (!agree.checked) return;
+        thanks.classList.add("show");
+        submit.disabled = true;
+      });
+    })();
+  </script>
+</body>
+</html>
