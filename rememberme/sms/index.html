@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SMS Opt-In — RememberMe</title>
-<meta name="description" content="Public SMS opt-in for RememberMe by SoberSend. Agree to receive transactional family-question texts." />
+<title>Optional SMS — RememberMe</title>
+<meta name="description" content="Optional RememberMe SMS from Matthew Stitz / SoberSend. Consent is not required to use RememberMe. Questions can be sent by email instead." />
 <meta name="author" content="SoberSend" />
 <meta name="theme-color" content="#14181C" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="SMS Opt-In — RememberMe" />
-<meta property="og:description" content="Sign up to receive transactional RememberMe SMS. Message frequency varies. Message and data rates may apply." />
+<meta property="og:title" content="Optional SMS — RememberMe" />
+<meta property="og:description" content="Optional transactional SMS for RememberMe. Consent is not a condition of using the app." />
 <meta property="og:url" content="https://sobersend.com/rememberme/sms/" />
 <meta property="og:site_name" content="SoberSend" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314181C'/%3E%3Crect x='14' y='14' width='9' height='9' rx='1' fill='%23FF4E1F' transform='rotate(45 18.5 18.5)'/%3E%3C/svg%3E" />
@@ -63,6 +63,13 @@
     margin: 2rem 0 0.6rem;
   }
   .meta { color: var(--muted); font-size: 0.95rem; }
+  .notice {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin: 16px 0 8px;
+  }
   .card {
     background: var(--card);
     border: 1px solid var(--line);
@@ -113,15 +120,18 @@
     cursor: not-allowed;
   }
   button:hover:not(:disabled) { background: var(--flare); color: #fff; }
+  .skip {
+    display: inline-block;
+    margin: 12px 0 0;
+    color: var(--muted);
+  }
   .ok {
-    display: none;
     background: #e8f4ea;
     border: 1px solid #b7d8bc;
     border-radius: 12px;
     padding: 14px 16px;
     margin-top: 16px;
   }
-  .ok.show { display: block; }
   .mock {
     font-size: 0.95rem;
     background: #fff;
@@ -152,45 +162,50 @@
     </header>
 
     <main>
-      <h1>SMS Opt-In</h1>
-      <p class="meta">RememberMe by SoberSend · registered messaging brand Matthew Stitz</p>
-      <p>RememberMe sends transactional SMS so a family member (a Legend) can answer a question in their own voice. This page is the public Call-to-Action reviewers and users can open without a login.</p>
+      <h1>Optional SMS</h1>
+      <p class="meta">RememberMe by SoberSend · registered messaging brand Matthew Stitz · Washington, USA</p>
+
+      <p class="notice"><strong>SMS consent is not required to use RememberMe.</strong> You can create an account, start a Legend, and send or receive a family question by email with no text messages. Declining SMS does not block the app, a purchase, or a question.</p>
+
+      <p>This page is only for people who <em>want</em> transactional texts from RememberMe (Matthew Stitz). Leave it if you prefer email. Product overview: <a href="/rememberme/">sobersend.com/rememberme</a>.</p>
 
       <div class="card">
         <form id="sms-opt-in" action="#" method="post" novalidate>
-          <label class="field" for="mobile">Mobile number</label>
-          <input id="mobile" name="mobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="(555) 555-0100" required />
+          <label class="field" for="mobile">Mobile number (optional SMS program only)</label>
+          <input id="mobile" name="mobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="(555) 555-0100" />
 
           <label class="consent">
             <input id="agree" name="agree" type="checkbox" />
             <span>
-              I agree to receive recurring transactional SMS from RememberMe (Matthew Stitz / SoberSend), including family questions and a unique HTTPS link to answer in my own voice. Message frequency varies. Message and data rates may apply. Reply STOP to cancel or HELP for help. See the
-              <a href="/rememberme/privacy/">Privacy Policy</a> (mobile numbers are not shared with third parties for marketing) and
+              Optional: I agree to receive recurring transactional SMS from RememberMe (Matthew Stitz / SoberSend), including family questions and a unique HTTPS link to answer in my own voice. Consent is not a condition of using RememberMe. Message frequency varies. Message and data rates may apply. Reply STOP to cancel or HELP for help.
+              <a href="/rememberme/privacy/">Privacy Policy</a> (mobile numbers are not shared with third parties for marketing) ·
               <a href="/rememberme/terms/">Terms of Service</a>.
             </span>
           </label>
 
-          <button id="submit" type="submit" disabled>Agree and Save Number</button>
+          <button id="submit" type="submit" disabled>Join Optional SMS</button>
         </form>
-        <p class="ok" id="thanks" role="status">You’re opted in to RememberMe SMS. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to cancel, HELP for help.</p>
+        <a class="skip" href="/rememberme/">Skip SMS — continue with RememberMe by email</a>
+        <div id="thanks" hidden></div>
       </div>
 
       <h2>What the texts are</h2>
       <ul>
         <li>Transactional family-question invitations only. No marketing, no 2FA codes.</li>
-        <li>Sample: “Star, it’s RememberMe. Matt has a question for you. What is your earliest childhood memory? Tap to answer out loud: https://rememberme.sobersend.com/s/… Reply STOP to opt out, HELP for help.”</li>
+        <li>Sample: “Star, it’s RememberMe. Matt has a question for you. What is your earliest childhood memory? Tap to answer out loud: https://rememberme.sobersend.com/s/example Reply STOP to opt out, HELP for help.”</li>
         <li>Frequency depends on how often a family member sends a question.</li>
         <li>Help: <a href="mailto:sobersend@gmail.com">sobersend@gmail.com</a></li>
       </ul>
 
-      <h2>How it also works in the app</h2>
-      <p>Owners who already have a RememberMe account can enter the Legend’s number on the Send screen. That screen is behind sign-in, so the same consent language is shown here for reviewers:</p>
-      <div class="mock" aria-label="In-app SMS consent replica">
-        <div class="title">Send Star her first question</div>
-        <p><strong>Mobile number</strong><br />+1 (206) 251-7838</p>
+      <h2>How optional SMS looks in the app</h2>
+      <p>Owners who already have an account can choose Email, Text message, or both. Email works with the SMS box left unchecked. That Send screen is behind sign-in, so the same optional checkbox is shown here:</p>
+      <div class="mock" aria-label="In-app optional SMS consent replica">
+        <div class="title">Send a question</div>
+        <p>How should we reach them? <strong>Email</strong> (default) · Text message (optional)</p>
+        <p><strong>Email</strong><br />name@example.com</p>
         <label class="consent" style="margin: 8px 0 0;">
           <input type="checkbox" disabled />
-          <span>I confirm Star agreed to receive RememberMe SMS at this number. Message frequency varies. Message and data rates may apply. Reply STOP to cancel, HELP for help. <a href="/rememberme/privacy/">Privacy Policy</a> · <a href="/rememberme/terms/">Terms of Service</a>.</span>
+          <span>Optional: also send RememberMe SMS to this mobile number. Not required to send the question. Message frequency varies. Message and data rates may apply. Reply STOP to cancel, HELP for help. <a href="/rememberme/privacy/">Privacy Policy</a> · <a href="/rememberme/terms/">Terms of Service</a>.</span>
         </label>
       </div>
     </main>
@@ -198,7 +213,7 @@
     <footer>
       <nav aria-label="RememberMe legal">
         <a href="/rememberme/">RememberMe</a>
-        <a href="/rememberme/sms/" aria-current="page">SMS Opt-In</a>
+        <a href="/rememberme/sms/" aria-current="page">Optional SMS</a>
         <a href="/rememberme/privacy/">Privacy Policy</a>
         <a href="/rememberme/terms/">Terms of Service</a>
       </nav>
@@ -217,7 +232,10 @@
       form.addEventListener("submit", function (event) {
         event.preventDefault();
         if (!agree.checked) return;
-        thanks.classList.add("show");
+        thanks.hidden = false;
+        thanks.className = "ok";
+        thanks.setAttribute("role", "status");
+        thanks.textContent = "You’re opted in to optional RememberMe SMS. Consent was not required to use the app. Message frequency varies. Msg & data rates may apply. Reply STOP to cancel, HELP for help.";
         submit.disabled = true;
       });
     })();
