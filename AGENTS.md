@@ -11,8 +11,8 @@ Tagline: *Recovery, fully lived. Together.*
 The homepage is a single static brand page (mission, values, the name, manifesto,
 email signup). Separate subpages under **`/rememberwhen/`** support the Remember
 When mobile app (App Store / Google Play compliance: landing, privacy, terms,
-support). RememberMe legal pages live under **`/rememberme/`** (`/rememberme/privacy/`,
-`/rememberme/terms/`).
+support). RememberMe pages live under **`/rememberme/`** (`/rememberme/privacy/`,
+`/rememberme/terms/`, `/rememberme/support/`, `/rememberme/sms/`).
 
 ## Brand & strategy references
 
@@ -78,9 +78,9 @@ Manifesto → Join (email signup) → Footer.
 **Remember When (`/rememberwhen/`):** App landing, privacy, terms, support —
 keep these URLs stable for store listings.
 
-**RememberMe (`/rememberme/`):** Product hub, Privacy Policy, and Terms of
-Service. Keep `/rememberme/privacy/` and `/rememberme/terms/` stable for A2P /
-store listings.
+**RememberMe (`/rememberme/`):** Product hub, Privacy Policy, Terms of Service,
+Support, and optional SMS. Keep `/rememberme/privacy/`, `/rememberme/terms/`, and
+`/rememberme/support/` stable for A2P / store listings / in-app legal links.
 
 ## Email signup form
 
